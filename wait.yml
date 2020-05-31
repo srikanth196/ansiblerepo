@@ -1,0 +1,9 @@
+---
+- hosts: anode
+  tasks:
+    - name: install httpd package
+      yum: pkg=httpd state=latest
+    - name: wait for log
+      wait_for:
+         path: /home/user2/new.log 
+

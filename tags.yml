@@ -1,0 +1,12 @@
+---
+- hosts: anode
+  tasks:
+   - name: enter your name
+     raw: echo "srikanth" > /home/user1/srikanth.log
+     tags:
+      - firstname
+   - name: designation
+     raw: echo "devops_engineer" > /home/user1/srikanth.log
+     tags: 
+       - role
+

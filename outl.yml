@@ -1,0 +1,17 @@
+---
+- hosts: anode
+  tasks:
+   - name: Display Date&Time For Begining of Playbook
+     raw: /bin/date  > /home/node1/begin_playbook_timestamp.log
+   - name: Install ftp
+     yum: pkg=ftp state=present
+     notify: restart the ftp
+     async: 300
+     poll: 5
+     run_once: true
+   - name: Display Date&Time For Ending of Playbook
+     raw: /bin/date  > /home/node1/end_playbook_timestamp.log
+  handlers:
+   - name: restart the ftp
+     action: service name=ftp state=started
+

@@ -1,0 +1,19 @@
+---
+- hosts: anode
+  vars_prompt:
+    - name: something
+      prompt: enter package
+
+  tasks:
+    - name: installing "{{ something }}" package
+      action: yum name='{{ something }}' state=present
+      notify: starting package
+  handlers:
+    - name: starting package
+      action: service name='{{ something }}' state=started
+
+
+
+
+
+

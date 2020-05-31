@@ -1,0 +1,8 @@
+--- #this is testing playbook
+- hosts: anode
+  vars:
+   globes: httpd
+  tasks:
+    - name: installing "{{ globes }}" package
+      action: yum name="{{ globes }}" state=present
+

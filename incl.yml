@@ -1,0 +1,4 @@
+---
+- hosts: anode
+  tasks:
+    - include: inc.yml

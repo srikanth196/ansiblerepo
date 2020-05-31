@@ -1,0 +1,4 @@
+
+   - name: Install httpd
+     action: yum: pkg=httpd state=present
+     notify: service start
